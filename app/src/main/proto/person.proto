@@ -1,0 +1,33 @@
+// 指定语法
+syntax = "proto3";
+// 提供包名，供Java层调用类
+option java_package = "com.test.protobuffdemo.model";
+// 指定类名
+option java_outer_classname = "PBBean";
+// 导入某文件
+import "score.proto";
+import "hobby.proto";
+
+enum Sex {
+    MALE = 0;
+    FEMAL = 1;
+    SECRET = 2;
+}
+// 内部类Relative、导入类Score(import)用法
+message Person {
+    message Relative {
+        string name = 1;
+        string relationship = 2;
+    }
+    string name = 1;
+    int32 age = 2;
+    string number = 3;
+    Sex sex = 4;
+    double height = 5;
+    double weight = 6;
+    Score score = 7;
+    Relative relative = 8;
+    // 使用数据   packed = true 数据进行字节对齐
+    repeated int32 intArray = 9 [packed = true];
+    repeated Hobby hobbies = 10;
+}

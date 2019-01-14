@@ -1,0 +1,24 @@
+syntax = "proto2";
+package com.test.protobuffdemo.model;
+
+option java_package = "com.test.protobuffdemo.model";
+//option java_outer_classname = "ResponsePB";
+
+message Tab {
+    required int32 type = 1;
+    optional string f = 2;
+}
+message ItemData {
+    required string sname = 1;
+    required string packageid = 2;
+    repeated Tab tabs = 45;
+}
+message DataItem {
+    required int32 datatype = 1;
+    required ItemData itemdata = 2;
+}
+message ResponsePB {
+    repeated DataItem data = 1;
+    required bool hasNextPage = 2;
+    required string dirtag = 3;
+}

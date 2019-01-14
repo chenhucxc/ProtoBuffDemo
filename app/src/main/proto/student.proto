@@ -1,0 +1,25 @@
+/**
+- required  必要的域
+- optional  可选的
+- repeated  可重复的(0~N)
+protoc类型:double、float、int32、int64等，最常用的是：float、int32、bool、string、bytes
+int32 等于java中的int，int64 = long
+*/
+syntax = "proto2";
+package com.test.protobuffdemo;
+option java_package = "com.test.protobuffdemo.model";
+option java_outer_classname = "StudentBean";
+
+enum Sex {
+    MALE = 0;
+    FEMALE = 1;
+    SECRET = 2;
+}
+
+message Student {
+    required int32 number = 1;
+    required string name = 2;
+    required Sex sex = 3;
+    optional string hobby = 4;
+    optional string skill = 5;
+}

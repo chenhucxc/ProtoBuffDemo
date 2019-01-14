@@ -1,0 +1,10 @@
+syntax = "proto2";
+option java_package = "com.test.protobuffdemo.model";
+option java_outer_classname = "PBScore";
+
+message Score {
+    required string subject = 1;
+    required double degree = 2;
+    optional bool isPass = 3;
+    optional string teacher = 4;
+}
